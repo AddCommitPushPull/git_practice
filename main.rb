@@ -1,10 +1,13 @@
+require "colorize"
+
 def puts_git(cmd)
   puts `git #{cmd} -h`
 end
 
 def menu
-  puts "1: Enter git command"
-  puts "2: Exit"
+  puts "Main Menu".colorize(:cyan)
+  puts "1: Enter git command".colorize(:yellow)
+  puts "2: Exit".colorize(:magenta)
   choice = gets.to_i
   print `clear`
   case choice
@@ -14,11 +17,14 @@ def menu
       menu
     when 2
       puts "Thanks for using us!"
+      sleep(2)
       Exit
     else
       puts "invalid input"
+      sleep(2)
+      print `clear`
       menu
-    end
+    
   end
 end
 
